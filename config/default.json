@@ -1,0 +1,11 @@
+{   "application"   : {   "ServiceEndPointPort"            : 4444,                          
+                          "dbName"                         : "mongodb://192.168.129.197:27017/obscenity",
+                          "DBTest"                         : "mongodb://192.168.129.197:27017/obscenity",
+                          "logFileName"                    : "obscenity",
+                          "applicationName"                : "obscenity",
+                          "logPath"                        : "./logs/",  
+                          "logTracelevel"                  : "debug",                          
+                          "consoleOutput"                  : "on"                          
+                      }
+}
+

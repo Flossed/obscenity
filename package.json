@@ -1,0 +1,43 @@
+{
+  "name": "obscenity",
+  "version": "0.0.0",
+  "description": "Small exercise in tenserflow model testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha --exit",
+    "start": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flossed/obscenity.git"
+  },
+  "keywords": [
+    "toxicity",
+    "tenserflow",
+    "AI"
+  ],
+  "author": "Daniel S. A. Khan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Flossed/obscenity/issues"
+  },
+  "homepage": "https://github.com/Flossed/obscenity#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "chai": "^5.1.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "eslint": "^8.50.0",
+    "express": "^4.21.0",
+    "express-fileupload": "^1.5.1",
+    "http": "^0.0.1-security",
+    "http-server": "^14.1.1",
+    "mocha": "^10.7.3",
+    "mongoose": "^5.12.6",
+    "nconf": "^0.12.1",
+    "nodemon": "^3.1.7",
+    "nyc": "^17.1.0",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.14.2"
+  }
+}

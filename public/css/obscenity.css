@@ -1,0 +1,372 @@
+/* File             : zanddbooks.css
+   Author           : Daniel S. A. Khan
+   Copywrite        : Daniel S. A. Khan (c) 2022
+   Description      : Main CSS file for ZANDDBOOKS
+   Notes            :
+*/
+body
+{     font-family: 'Calibri', sans-serif;
+	  font-size: 21px;
+	  background:#FEFBE4;
+}
+
+/*
+.heading
+{   font-family: 'Calibri', sans-serif;
+	  background: transparent url(/img/ZANDD.jpg) no-repeat top left;
+	  background-size: 100% 100%;
+	  position: fixed;
+	  top:0%;
+	  position: fixed;
+	  width: 100%;
+	  height: 14%;
+	  text-align: 	center;
+}*/
+
+.heading
+{   background: transparent url(/img/ZANDD.jpg) no-repeat top left;	
+	top:0%;
+	left:0%;
+	position: fixed;
+	width: 100%;
+	height: 200%;
+	text-align: 	center;
+	
+}
+
+
+
+.navbar
+{	  font-family: 'Calibri', sans-serif;
+	  position: fixed;
+	  top:14.0%;
+	  height:100%;
+	  width: 9%;
+	  padding-left: 1%;
+	  padding-right: 1%;
+	  left: 0;
+	  background:#F5F3E4;
+}
+
+
+
+.newsbar
+{   font-family: 'Calibri', sans-serif;
+	  position: fixed;
+	  top:14%;
+	  width: 0;
+	  height:83%;
+	  right: 1px;
+	  background:#F5F3E4;
+	  border: 1px solid black;
+	  overflow-y: hidden;
+	  overflow-x: hidden;
+}
+
+
+
+.main
+{   font-family: 'Calibri', sans-serif;
+	  position: fixed;
+	  left:11%;
+	  top: 15%;
+	  bottom: 5%;
+	  width:  87vw;
+	  height: 85vh;
+	  padding-left: 1%;
+	  padding-right: 1%;
+	  overflow-y: scroll;
+	  overflow-x: scroll;
+}
+
+span
+{   font-family: 'Calibri', sans-serif;
+	  font-size: 14px;
+	  font-weight: bold;
+	  color: red
+}
+
+
+.footer
+{   font-family: 'Calibri', sans-serif;
+	  position: fixed;
+	  bottom:1%;
+	  width: 98%;
+    text-align: center;
+}
+
+table
+{   border: 1px solid #473d1e;
+    border-collapse: collapse;
+    border-spacing: 300px;
+    font-family: 'Calibri', sans-serif;
+    font-size: 16px;
+}
+
+
+
+th
+{   text-align: center;
+	  
+	  border: 1px solid #473d1e;
+	  font-size: 18px;
+	  background-color:    rgb(189, 182, 182);	  
+	  padding: 20px;
+}
+
+
+
+td
+{   text-align: center;
+	  padding: 1px;
+	  border: 1px solid #473d1e;
+	  background-color: transparent;
+	  
+}
+
+
+
+form
+{   display: table;
+}
+
+
+
+p
+{   display: table-row;
+    text-align: left;
+	
+}
+
+
+
+label
+{   display: table-cell;    	
+	vertical-align: middle;		
+	
+}
+
+
+
+input 
+{   display: table-cell;   			
+	vertical-align: middle;		
+	
+} 
+
+
+
+ .fuelTable
+ {  position: fixed;
+	left:55%;
+	top: 30%;
+	
+	width:  40%;
+	height: 150%;
+	
+	margin:5px;
+	padding: 20px;
+
+}
+
+ 
+
+button
+{   color: white;  
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #6699ff;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #001a4d;
+    min-width: 95px;	
+	margin-top: 6px;
+	float :right;
+}
+
+.inputFigs
+{   width:  40%;
+	height: 150%;
+	border: 1px solid black;
+	margin:5px;
+	padding: 20px;
+
+}
+
+#loadFile 
+{   display: inline-block;
+    background: #ddd;
+    border: 1px outset #ccc;
+    border-radius: .3em;
+    padding: .3em 1em;
+    margin: .5em;
+}
+
+.evaluation
+{   width:  45%;
+	height: 18%;
+	border: 1px solid black;
+	margin:5px;
+	padding: 20px;
+
+}
+
+.evaluationButton
+{   position: relative;
+    top : -20vh;
+	left: 30vw;
+	margin-top: 20px;  
+    
+
+}
+
+.fixedEntry
+{   position: fixed;
+    top: 12vh;
+    padding: 20px;  
+	
+}
+
+.tableOfValues
+{   position: fixed;
+    top: 12vh;
+    left: 50%;
+    width: 40vw;
+    height: 60vh;
+    padding: 20px;    
+    font-family: 'Calibri', sans-serif;
+    
+}
+.tableOfDocuments
+{   position: fixed;
+				top: 66vh;				
+				padding: 20px;
+				left: 12%;
+    width: 35vw;
+    height: 60vh;
+}
+
+.Simulations
+{   position: fixed;
+	top: 22vh;
+	left: 60%;
+	width: 40vw;
+	height: 60vh;
+	padding: 20px;    
+	font-family: 'Calibri', sans-serif;
+	
+}
+
+
+.textareaBlock
+{   height: 20em;
+    width: 25em;   
+    resize: none;
+    text-align:center;
+    margin-left: 0.3em;
+}
+
+.textareaLine
+{   height: 2em;
+    width: 25em;   
+    resize: none;
+    text-align:center;
+	margin-left: 0.3em;
+	
+    
+}
+
+.textareaLineGreyedOUt
+{   height: 2em;
+    width: 25em;   
+    resize: none;
+    text-align:center;
+	margin-left: 0.3em;    
+    background-color: #f2f2f2;
+} 
+
+.selectStyle
+{   height: 2em;
+    width: 25em;   
+    resize: none;
+    text-align:center;
+	margin-left: 0.3em;
+}
+
+.zbr {
+	display: block; /* makes it have a width */
+	content: ""; /* clears default height */
+	margin-top: 0.3em; /* change this to whatever height you want it */
+}
+
+.errormsg {
+	background-color:solid red;
+	color: black;
+	font-weight: bold;
+	box-shadow: 
+	  -8px -8px 20px rgba(255, 0, 0, 0.651), 
+	  -6px -6px 6px #fff9,
+	  8px 8px 20px #0001, 
+	  5px 5px 6px #0001, 
+	  inset 0px 0px 0px #fff9,
+	  inset 0px 0px 0px #0001, 
+	  inset 0px 0px 0px #fff9,
+	  inset 0px 0px 0px #0001;
+	font-size: 1em;
+	line-height: 2;
+	border-radius: 10px;
+	padding: 2px 20px;	
+	margin-left: 60px;	
+	top: -10px;
+	position: relative;
+	border-left: 10px solid red;
+  }
+
+  .versions
+  {   position: fixed;
+	  bottom: 1em;
+	  right: 1em;
+	  width: 7em;
+	  height: 2.5em;
+	  padding-left: 1%;
+	  padding-right: 1%;
+	  background: #f0f4f1;
+	  border: 1px solid black;	  
+  }
+
+.buttonbar
+{   position: fixed;
+	top: 26%;
+	left: 33%;
+	width: 10%;
+	
+	padding-left: 1%;
+	padding-right: 1%;
+	
+}
+
+#statementDropArea 
+{   position: absolute;
+	   left:21vw;
+	   top: 9vh;	   
+    width: 14vw;
+    height: 16vw;
+    font-family: sans-serif;
+    margin: 100px auto;
+    padding: 20px;
+    text-align: 	center;
+				border: 2px dashed red;
+    border-radius: 20px;
+}
+
+ 
+#statementDropArea.highlight
+{   border: 4px dashed green;
+}
+
+/* LOG:
+*/
