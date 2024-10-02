@@ -17,7 +17,7 @@ const {logger}                         = require( './services/generic' );
 const {ApplicationPort}                = require( './services/generic' );
 const {applicationName}                = require( './services/generic' );
 const {dbName}                         = require( './services/generic' );
-const { getCurrentVersions }            = require( './services/manageVersion' );
+const { getCurrentVersions }           = require( './services/manageVersion' );
 /* ------------------ End External Application Libraries      ----------------*/
 
 /* ------------------     Internal Application Libraries      ----------------*/
@@ -27,11 +27,12 @@ const { getCurrentVersions }            = require( './services/manageVersion' );
 /* --------------- External Application Libraries Initialization -------------*/
 const db                                = mongoose.connection;
 const app                               = express();
+const usedDB                            = dbName;
 
 // eslint-disable-next-line no-undef
 const directoryName                     = __dirname;
 app.set( 'view engine','ejs' );
-mongoose.connect( dbName , {useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex: true} );
+mongoose.connect( usedDB , {useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex: true} );
 app.use( bodyParser.json() );
 app.use( fileUpload() );
 app.use( bodyParser.urlencoded( {extended:true} ) );
@@ -76,13 +77,14 @@ function setRouting ()
 }
 
 
+
 async function initializeServices ()
 {   try
     {   logger.trace( applicationName + ':index:initializeServices: Starting' );
 
         const timeStamp                = new Date();
-        const versions                = getCurrentVersions();
-        const dbNameArray              = dbName.split( '/' );
+        const versions                 = getCurrentVersions();
+        const dbNameArray              = usedDB.split( '/' );
         const lastFix                  = versions.tagList.length <2 ? "" :versions.tagList[versions.tagList.length - 2].slice( 16 );
 
 

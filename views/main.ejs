@@ -8,8 +8,13 @@
    
       <div class="main">
          <h2>Tensorflow:Toxicity</h2>
+         <textarea style="display:none;" id="currentVersions" ><%= typeof currentVersions !== 'undefined' ? JSON.stringify(currentVersions):'' %></textarea> 
          An test application for testing the google tensor flow model call toxicty . 
          Which scores the probability of a text being toxic. ( in english only).
-      </div>   
+      </div>
+      <div class="versions">
+         <div id="versionItems"></div>         
+      </div>    
+      <script src="/js/versionInformation.js"></script>
    </body>
 </html>

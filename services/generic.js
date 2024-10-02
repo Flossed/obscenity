@@ -30,7 +30,9 @@ const outputToBrowser                  = config.get( 'application:outputToBrowse
 const logTracelevel                    = config.get( 'application:logTracelevel' );
 const consoleOutput                    = config.get( 'application:consoleOutput' );
 const logPath                          = config.get( 'application:logPath' );
-const dbName                            = config.get( 'application:dbName' ); 
+const dbName                           = config.get( 'application:dbName' ); 
+const dbNameTst                        = config.get( 'application:dbNameTst' ); 
+
 /* --------------------------------- End Application constants ----------------*/
 
 /* --------------- Internal Application Libraries Initialization --------------*/
@@ -50,6 +52,8 @@ module.exports.logTracelevel           = logTracelevel;
 module.exports.consoleOutput           = consoleOutput;
 module.exports.logPath                 = logPath;
 module.exports.dbName                  = dbName;
+module.exports.dbNameTst               = dbNameTst;
+
 /* ----------------------------------End External functions -----------------*/
 /* LOG:
 */

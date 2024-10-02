@@ -8,7 +8,7 @@
 const errorCatalog                      = require( '../services/errorCatalog' );
 const {logger,applicationName}          = require( '../services/generic' );
 const { getCurrentVersions }            = require( '../services/manageVersion' );
-
+const versionInformation                = getCurrentVersions();
 
 async function unknownHandler ( req,res )
 {   try
@@ -27,7 +27,7 @@ async function unknownHandler ( req,res )
 async function aboutHandler ( req,res )
 {   try
     {   logger.trace( applicationName + ':generic:aboutHandler():Started' );
-        res.render( 'about' );
+        res.render( 'about' , { currentVersions:versionInformation, });
         logger.trace( applicationName + ':generic:aboutHandler():Done' );
     }
     catch ( ex )
@@ -39,7 +39,7 @@ async function aboutHandler ( req,res )
 async function homeHandler ( req,res )
 {   try
     {   logger.trace( applicationName + ':generic:homeHandler():Started' );
-        res.render( 'main' );
+        res.render( 'main', { currentVersions:versionInformation, }  );
         logger.trace( applicationName + ':generic:homeHandler():Done' );
     }
     catch ( ex )

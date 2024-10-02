@@ -5,8 +5,13 @@
    <%- include('layouts/heading'); -%>
    <%- include('layouts/navbar'); -%>
       <div class="main">
+         <textarea style="display:none;" id="currentVersions" ><%= typeof currentVersions !== 'undefined' ? JSON.stringify(currentVersions):'' %></textarea> 
          <h1>About</h1>
          Tensorflow:Toxicity<br>
       </div>   
+      <div class="versions">
+         <div id="versionItems"></div>         
+      </div>    
+      <script src="/js/versionInformation.js"></script>
    </body>
 </html>
