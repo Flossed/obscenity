@@ -13,6 +13,8 @@ const fileUpload                       = require( 'express-fileupload' );
 const favicon                          = require( 'serve-favicon' );
 const path                             = require( 'path' );
 const cors                             = require( 'cors' );
+const tf                               = require( '@tensorflow/tfjs' );
+
 const {logger}                         = require( './services/generic' );
 const {ApplicationPort}                = require( './services/generic' );
 const {applicationName}                = require( './services/generic' );
@@ -85,18 +87,25 @@ async function initializeServices ()
         const timeStamp                = new Date();
         const versions                 = getCurrentVersions();
         const dbNameArray              = usedDB.split( '/' );
-        const lastFix                  = versions.tagList.length <2 ? "" :versions.tagList[versions.tagList.length - 2].slice( 16 );
-
-
+        const lastFix                  = versions.tagList.length < 2 ? '' : versions.tagList[versions.tagList.length - 2].slice( 16 );
+        const appNameString            = 'Starting ' + applicationName;
+        const timeStampString          = 'Time: ' + timeStamp.toLocaleTimeString( 'de-DE' );
+        const dateString               = 'Date: ' + timeStamp.toLocaleDateString( 'de-DE' );
+        const portString               = 'App listening on port [' + ApplicationPort + ']';
+        const dbString                 = 'DB Name: [' + dbNameArray[dbNameArray.length - 1] + ']';
+        const versionString            = 'Version: [' + versions.currentTag[0] + ']';
+        const lastFixString            = 'Last Fix: [' + lastFix + ']';
+        const tensorFlowVersionString  = 'Tensor Flow Version: [' + tf.version.tfjs + ']';
 
         logger.info( '********************************************************************************' );
-        logger.info( '*                    Starting ' + applicationName + '                                        *' );
-        logger.info( '*                    Time: ' + timeStamp.toLocaleTimeString( 'de-DE' ) + '                                            *' );
-        logger.info( '*                    Date: ' + timeStamp.toLocaleDateString( 'de-DE' ) + '                                           *' );
-        logger.info( '*                    App listening on port [' + ApplicationPort + ']                              *' );
-        logger.info( '*                    DB Name: [' + dbNameArray[dbNameArray.length - 1] + ']                                      *' );
-        logger.info( '*                    Version: [' + versions.currentTag[0] + ']                              *' );
-        logger.info( '*                    last fix: [' + lastFix + ']                                              *' );
+        logger.info( '*'.padEnd( 21 ,' ' ) + appNameString.padEnd( '58',' ' ) + '*' );
+        logger.info( '*'.padEnd( 21 ,' ' ) + timeStampString.padEnd( '58',' ' ) + '*' );
+        logger.info( '*'.padEnd( 21 ,' ' ) + dateString.padEnd( '58',' ' ) + '*' );
+        logger.info( '*'.padEnd( 21 ,' ' ) + portString.padEnd( '58',' ' ) + '*' );
+        logger.info( '*'.padEnd( 21 ,' ' ) + dbString.padEnd( '58',' ' ) + '*' );
+        logger.info( '*'.padEnd( 21 ,' ' ) + tensorFlowVersionString.padEnd( '58',' ' ) + '*' );
+        logger.info( '*'.padEnd( 21 ,' ' ) + versionString.padEnd( '58',' ' ) + '*' );
+        logger.info( '*'.padEnd( 21 ,' ' ) + lastFixString.padEnd( '58',' ' ) + '*' );
         logger.info( '********************************************************************************' );
 
         db.on( 'error', console.error.bind( console, 'connection error: ' ) );
