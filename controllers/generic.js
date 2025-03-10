@@ -5,17 +5,30 @@
    Notes            :
 
 */
-const errorCatalog                      = require( '../services/errorCatalog' );
 const {logger,applicationName}          = require( '../services/generic' );
 const { getCurrentVersions }            = require( '../services/manageVersion' );
+const { toxicityIF }                    = require( '../services/toxicityIF' );
 const versionInformation                = getCurrentVersions();
+
+
+
+async function aboutHandler ( req,res )
+{   try
+    {   logger.trace( applicationName + ':generic:aboutHandler():Started' );
+        res.render( 'about' , { currentVersions:versionInformation, } );
+        logger.trace( applicationName + ':generic:aboutHandler():Done' );
+    }
+    catch ( ex )
+    {   logger.exception( applicationName + ':generic:aboutHandler():An exception occurred :[' + ex + '].' );
+    }
+}
+
+
 
 async function unknownHandler ( req,res )
 {   try
     {   logger.trace( applicationName + ':generic:unknownHandler():Started' );
-        console.log( req );
-        logger.error( applicationName + ':generic:unknownHandler():Unknown Path:[' + req.path + '].' );
-        res.render( 'unknown' );
+        res.render( 'unknown', { currentVersions:versionInformation, } );
         logger.trace( applicationName + ':generic:unknownHandler():Done' );
     }
     catch ( ex )
@@ -23,17 +36,6 @@ async function unknownHandler ( req,res )
     }
 }
 
-
-async function aboutHandler ( req,res )
-{   try
-    {   logger.trace( applicationName + ':generic:aboutHandler():Started' );
-        res.render( 'about' , { currentVersions:versionInformation, });
-        logger.trace( applicationName + ':generic:aboutHandler():Done' );
-    }
-    catch ( ex )
-    {   logger.exception( applicationName + ':generic:aboutHandler():An exception occurred :[' + ex + '].' );
-    }
-}
 
 
 async function homeHandler ( req,res )
@@ -47,17 +49,6 @@ async function homeHandler ( req,res )
     }
 }
 
-
-async function errorHandler ( req,res )
-{   try
-    {   logger.trace( applicationName + ':generic:errorHandler():Started' );
-        res.render( 'errorPage' );
-        logger.trace( applicationName + ':generic:errorHandler():Done' );
-    }
-    catch ( ex )
-    {   logger.exception( applicationName + ':generic:errorHandler():An exception occurred :[' + ex + '].' );
-    }
-}
 
 
 function findTerm ( originalString, searchString )
@@ -75,6 +66,62 @@ function findTerm ( originalString, searchString )
 }
 
 
+
+async function toxicitytestPost ( req,res )
+{   try
+    {   logger.trace( applicationName + ':generic:toxicitytestPost():Started' );
+
+        const testString               =   req.body.testString;
+
+        logger.debug( applicationName + ':generic:toxicitytestPost():Test String:[' + testString + '].' );
+        console.log( testString );
+        const antwoord                 =   await toxicityIF( testString, 0.5 );
+        console.log('antwoord', JSON.stringify(antwoord, null, 2));
+        res.render( 'toxicitytest', { currentVersions:versionInformation, classification:antwoord } );
+        logger.trace( applicationName + ':generic:toxicitytestPost():Done' );
+    }
+    catch ( ex )
+    {   logger.exception( applicationName + ':generic:toxicitytestPost():An exception occurred :[' + ex + '].' );
+    }
+}
+
+
+
+function toxicitytestGet ( req,res )
+{   try
+    {  logger.trace( applicationName + ':generic:toxicitytestGet():Started' );
+       res.render( 'toxicitytest', { currentVersions:versionInformation, } );
+       logger.trace( applicationName + ':generic:toxicitytestGet():Done' );
+    }
+    catch ( ex )
+    {   logger.exception( applicationName + ':generic:toxicitytestGet():An exception occurred :[' + ex + '].' );
+    }
+}
+
+
+
+
+async function toxicitytestHandler ( req,res )
+{   try
+    {   logger.trace( applicationName + ':generic:toxicitytestHandler():Started' );
+
+        switch ( req.method )
+        {   case 'POST' :   toxicitytestPost( req,res );
+                            break;
+            case 'GET'  :   toxicitytestGet( req,res );
+                            break;
+            default     :   break;
+        }
+
+        logger.trace( applicationName + ':generic:toxicitytestHandler():Done' );
+    }
+    catch ( ex )
+    {   logger.exception( applicationName + ':generic:toxicitytestHandler():An exception occurred :[' + ex + '].' );
+    }
+}
+
+
+
 /* --------------------------- Public Functions   ----------------------------*/
 async function main ( req, res )
 {   try
@@ -85,7 +132,7 @@ async function main ( req, res )
                                                              break;
            case '/about'                                 :   aboutHandler( req,res );
                                                              break;
-           case '/error'                                 :   errorHandler( req,res );
+           case '/toxicitytest'                          :   toxicitytestHandler( req,res  );
                                                              break;
            default                                       :   unknownHandler( req,res );
                                                              break;
@@ -96,6 +143,7 @@ async function main ( req, res )
     {   logger.exception( applicationName + ':generic:main():An exception occurred: [' + ex + '].' );
     }
 }
+
 
 
 module.exports.main                     = main;

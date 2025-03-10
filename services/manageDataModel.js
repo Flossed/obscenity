@@ -1,6 +1,6 @@
 /* File             : manageDataModel.js
    Author           : Daniel S. A. Khan
-   Copywrite        : Daniel S. A. Khan (c) 2023-2024
+   Copywrite        : Daniel S. A. Khan (c) 2023-2025
    Description      : generic library for handling actions on storing data in
                       database. Containing CRUD functions for the data.
                       using the library consistently allows for management of
@@ -38,7 +38,8 @@ function getModel ( model )
     }
 }
 
-/* ----------------------------- Public Functions   ----------------------------*/
+
+
 async function createRecord ( model,dbRecord )
 {   try
     {   const  responseRecord          = {};
@@ -118,6 +119,7 @@ async function createRecord ( model,dbRecord )
 }
 
 
+
 async function createHistoricalRecord ( model, record )
 {   try
     {   logger.trace( applicationName + ':manageDataModel:createHistoricalRecord:Started.' );
@@ -146,6 +148,8 @@ async function createHistoricalRecord ( model, record )
        return result;
    }
 }
+
+
 
 async function getRecord ( model, recordID )
 {   try
@@ -215,6 +219,7 @@ async function getRecords ( model )
 }
 
 
+
 async function getHistoricalRecord ( model, recordID )
 {   try
     {   logger.trace( applicationName + ':manageDataModel:getHistoricalRecord:Started ' );
@@ -249,12 +254,6 @@ async function getHistoricalRecord ( model, recordID )
 }
 
 
-/*
-{ extendedMessage: 'An exception occurred: [TypeError: Cannot read property \'_id\' of undefined].',
-  payload: 'An exception occurred: [TypeError: Cannot read property \'_id\' of undefined].',
-
- }
-*/
 
 async function getHistoricalRecords ( model )
 {   try
@@ -288,50 +287,7 @@ async function getHistoricalRecords ( model )
    }
 }
 
-/*
-try
-        {   const retVal                   = await dbModel[Object.keys( dbModel )[0]].create( { ...record._doc } );
-            responseRecord.createRec       = retVal._doc;
-            const hist                     = { ...retVal._doc };
-            const histResponse             = await createHistoricalRecord( dbModel[Object.keys( dbModel )[1]], hist );
 
-            if ( histResponse.returnCode !== errorCatalog.NO_ERROR )
-            {   logger.error( applicationName + ':manageDataModel:createRecord:Technical error:' + histResponse.returnMsg );
-                logger.trace( applicationName + ':manageDataModel:createRecord:Done!' );
-                return histResponse;
-            }
-
-            responseRecord.histRec          = histResponse.body;
-            result.body                     = responseRecord;
-        }
-        catch ( ex )
-        {   const validationErrors     = [];
-
-            for ( const field in ex.errors )
-            {   const valErr  = {};
-                if ( ex.errors[field].name.includes( 'ValidatorError' ) )
-                {   valErr.name        =   ex.errors[field].name;
-                    valErr.message     =   ex.errors[field].message;
-                    valErr.path        =   ex.errors[field].path;
-                    validationErrors.push( valErr );
-                }
-                else
-                {   const result        = { ... errorCatalog.exception } ;
-                    result.returnMsg    = applicationName + ':manageDataModel:createRecord:An exception occurred: [' + ex + '].';
-                    logger.exception( result.returnMsg );
-                    logger.trace( applicationName + ':manageDataModel:createRecord:Done!' );
-                    return result;
-                }
-            }
-            const result                   = { ... errorCatalog.validationError};
-            result.returnMsg               = applicationName + ':manageDataModel:createRecord:Validation errors occurred: ';
-            result.body                    = validationErrors;
-
-            logger.trace( applicationName + ':manageDataModel:createRecord:Done!' );
-            return result;
-        }
-
-        */
 
 async function  updateRecord ( model, record )
 {   try
@@ -406,6 +362,7 @@ async function  updateRecord ( model, record )
 }
 
 
+
 async function  updateRecordOrg ( model, record )
 {   try
     {   let response;
@@ -452,6 +409,7 @@ async function  updateRecordOrg ( model, record )
 }
 
 
+
 async function deleteRecord ( model, record )
 {   try
     {   logger.trace( applicationName + ':manageDataModel:deleteRecord:Started.' );
@@ -491,6 +449,7 @@ async function deleteRecord ( model, record )
 }
 
 
+
 async function checkRecord ( model, criterea )
 {   try
     {   logger.trace( applicationName + ':manageDataModel:checkRecord:Started ' );
@@ -522,6 +481,7 @@ async function checkRecord ( model, criterea )
 }
 
 
+
 async function duplicateRecord (  model, record )
 {   try
     {   let localRec;
@@ -545,6 +505,7 @@ async function duplicateRecord (  model, record )
        return result;
    }
 }
+
 
 
 async function restoreRecord ( model, histRecordID )
@@ -652,28 +613,22 @@ async function validateRecord ( model, dbRecord )
        return result;
    }
 }
-/* ----------------------------------External functions ------------------------*/
+
+
+
 module.exports.createRecord             = createRecord;
 module.exports.createHistoricalRecord   = createHistoricalRecord;
 module.exports.getRecord                = getRecord;
 module.exports.getRecords               = getRecords;
 module.exports.getHistoricalRecord      = getHistoricalRecord;
 module.exports.getHistoricalRecords     = getHistoricalRecords;
-
 module.exports.updateRecord             = updateRecord;
 module.exports.deleteRecord             = deleteRecord;
-
-
 module.exports.checkRecord              = checkRecord;
 module.exports.duplicateRecord          = duplicateRecord;
 module.exports.restoreRecord            = restoreRecord;
 module.exports.validateRecord           = validateRecord;
 
-/* ----------------------------------End External functions --------------------*/
-
-
-
-/* ----------------------------- End Public Functions   ------------------------*/
 
 
 /* LOG:

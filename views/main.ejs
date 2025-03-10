@@ -1,20 +1,32 @@
-<!DOCTYPE html>
 <html lang="en">
 <%- include('layouts/header'); -%>
-   <body>
+   <body style="background-color: #FEFBE4;">   
    <%- include('layouts/heading'); -%>
-   <%- include('layouts/navbar'); -%>
-   
-   
-      <div class="main">
-         <h2>Tensorflow:Toxicity</h2>
-         <textarea style="display:none;" id="currentVersions" ><%= typeof currentVersions !== 'undefined' ? JSON.stringify(currentVersions):'' %></textarea> 
-         An test application for testing the google tensor flow model call toxicty . 
-         Which scores the probability of a text being toxic. ( in english only).
-      </div>
-      <div class="versions">
-         <div id="versionItems"></div>         
-      </div>    
-      <script src="/js/versionInformation.js"></script>
+   <main>
+      <div class="container marketing">                     
+         <div class="row featurette">
+            <div class="col-md-7">
+               <h1 class="featurette-heading fw-normal lh-1" data-i18n-key="main-Item-1-title"></h1>
+               <h2 class="featurette-heading fw-normal lh-1"><span class="text-body-secondary" data-i18n-key="main-Item-1-subtitle" ></span></h2>              
+               <p class="lead">
+               <span data-i18n-key="main-Item-1-line-1"><br></span>
+               <a href="https://figshare.com/articles/data_json/7376747" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"><span data-i18n-key="main-Item-1-CRD"></span></a>
+               <span data-i18n-key="main-Item-1-line-12"><br></span>
+               <span data-i18n-key="main-Item-1-line-2"><br></span>
+               <span data-i18n-key="main-Item-1-line-3"><br></span>
+               <a href="https://github.com/conversationai/conversationai.github.io/blob/master/crowdsourcing_annotation_schemes/toxicity_with_subattributes.md" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"><span data-i18n-key="main-Item-1-here"></span></a>
+               <span data-i18n-key="main-Item-1-line-4"><br></span> <p><br></p>
+               <span data-i18n-key="main-Item-1-line-5"><br></span>                
+            </div>
+            <div class="col-md-5">  
+              <a href="/Toxicity">             
+              <img src="/img/gasmask.svg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="200" height="200" alt="..." aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+              </a>
+            </div>
+         </div>
+         <hr class="featurette-divider">
+      </div>                
+   </main>
+   <%- include('layouts/footer'); -%>
    </body>
 </html>

@@ -1,18 +1,22 @@
-const {logger}                         = require( '../services/generic' );
-const {applicationName}                = require( '../services/generic' );
-
-
-const { execSync }                     = require( 'child_process' );
-const {dbName}                         = require( './generic' );
-
+/* File             : manageVersion.js
+   Author           : Daniel S. A. Khan
+   Copywrite        : Daniel S. A. Khan (c) 2024-2025
+   Description      : generic library for managing the version of the application
+   Notes            :
+*/
+const {logger}                         =   require( '../services/generic' );
+const {applicationName}                =   require( '../services/generic' );
+const { execSync }                     =   require( 'child_process' );
+const {dbName}                         =   require( './generic' );
 const   getTagCommand                  =   'git tag -n10 ';
 const   getCurrentTagCommand           =   'git describe --tags --abbrev=0';
-const   currentVersions                 =   {};
+const   currentVersions                =   {};
+
 
 
 function getCurrentTag()
 {   try
-    {   const currentTag                   =   execSync( getCurrentTagCommand ).toString().split( '\n' );        
+    {   const currentTag               =   execSync( getCurrentTagCommand ).toString().split( '\n' );        
         return currentTag;
     }
     catch ( ex )
@@ -22,17 +26,17 @@ function getCurrentTag()
 
 }
 
+
+
+
 function getCurrentVersions ()
 {   try
     {   logger.trace( applicationName + ':index:getCurrentVersions:Started ' );
-
         const tagList                      =   execSync( getTagCommand ).toString().split( '\n' );
         const currentTag                   =   getCurrentTag();
         currentVersions.tagList            =   tagList;
         currentVersions.dbName             =   dbName;
         currentVersions.currentTag         =   currentTag;
-
-
         logger.trace( applicationName + ':index:getCurrentVersions:Done ' );
         return currentVersions;
     }
@@ -42,4 +46,10 @@ function getCurrentVersions ()
 }
 
 
+
 module.exports                         =   { getCurrentVersions};
+
+
+
+/* LOG:
+*/

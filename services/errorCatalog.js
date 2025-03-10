@@ -4,30 +4,7 @@
    Description      :
    Notes            :
 
-*/
-
-/* ------------------     External Application Libraries      ----------------*/
-/* ------------------ End External Application Libraries      ----------------*/
-
-/* --------------- External Application Libraries Initialization -------------*/
-/* ----------- End External Application Libraries Initialization -------------*/
-
-/* ------------------     Internal Application Libraries      ----------------*/
-/* ------------------ End Internal Application Libraries      ----------------*/
-
-/* ---------------------------------  Application constants    ----------------*/
-/* --------------------------------- End Application constants ----------------*/
-
-/* --------------- Internal Application Libraries Initialization -------------*/
-/* ----------- End Internal Application Libraries Initialization -------------*/
-
-/* ------------------------------------- Controllers -------------------------*/
-/* -------------------------------- End Controllers --------------------------*/
-
-/* ------------------------------------- Services ----------------------------*/
-/* -------------------------------- End Services -----------------------------*/
-
-/* --------------- Internal Variables Initialization -------------------------*/
+*/ 
 const BAD_REQUEST                       = 0xff;
 const BAD_RESULT                        = 0xfe;
 const EXCEPTION                         = 0x0f;
@@ -65,12 +42,10 @@ const validationError                  =   {   returnCode: VALIDATIONERROR,
 const badDataRecord                    =   {   returnCode: BAD_DATARECORD,
                                                returnMsg: 'Bad DataRecord: Data Record is not valid',
                                                body : {}
-                                           };
+                                           }; 
 
-/* ----------- End Internal Variables Initialization -------------------------*/
-/* ------------------------------------- Functions   -------------------------*/
-/* --------------------------------- End Functions   -------------------------*/
-/* ----------------------------------External functions ----------------------*/
+
+
 module.exports.badRequest                      = badRequest;
 module.exports.badResult                       = badResult;
 module.exports.exception                       = exception;
@@ -82,12 +57,9 @@ module.exports.EXCEPTION                       = EXCEPTION;
 module.exports.BAD_RESULT                      = BAD_RESULT;
 module.exports.BAD_REQUEST                     = BAD_REQUEST;
 module.exports.VALIDATIONERROR                  = VALIDATIONERROR;
-module.exports.BAD_DATARECORD                  = BAD_DATARECORD;  
+module.exports.BAD_DATARECORD                  = BAD_DATARECORD;
 
-
-/* ----------------------------------End External functions ------------------*/
 
 
 /* LOG:
-
 */

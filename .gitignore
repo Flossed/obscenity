@@ -28,6 +28,11 @@
 !/scripts
 !/config
 !/documentation
+/documentation/bucket1.json
+/documentation/bucket2.json
+/documentation/bucket3.json
+/documentation/bucket4.json
+/documentation/bucket5.json
 
 #########################################################################################################
 #   1. /*                           'exclude everything'

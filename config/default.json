@@ -1,10 +1,3 @@
-{   "application"   : {   "ServiceEndPointPort"            : 4444,                          
-                          "dbName"                         : "mongodb://192.168.129.197:27017/obscenityTst",
-                          "logFileName"                    : "obscenity",
-                          "applicationName"                : "obscenity",
-                          "logPath"                        : "./logs/",  
-                          "logTracelevel"                  : "debug",                          
-                          "consoleOutput"                  : "on"                          
-                      }
-}
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:665a7fb595b8b3451bc1676558d7ce770b33b185d4a00a13444788ddeb5ddf8c
+size 649
