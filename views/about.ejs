@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('layouts/header'); -%>
-   <body>
+   <body style="background-color: #FEFBE4;">   
    <%- include('layouts/heading'); -%>
-   <%- include('layouts/navbar'); -%>
-      <div class="main">
-         <textarea style="display:none;" id="currentVersions" ><%= typeof currentVersions !== 'undefined' ? JSON.stringify(currentVersions):'' %></textarea> 
-         <h1>About</h1>
-         Tensorflow:Toxicity<br>
-      </div>   
-      <div class="versions">
-         <div id="versionItems"></div>         
-      </div>    
-      <script src="/js/versionInformation.js"></script>
+    <main>
+       <div class="col-md-6 p-lg-5 mx-auto my-5">         
+          <h1 class="display-3 fw-bold" data-i18n-key="about-title"></h1>
+          <h3 class="fw-normal text-muted mb-3" data-i18n-key="about-sub-title"></h3>                   
+          <span data-i18n-key="about-line-1"></span>
+          <span data-i18n-key="about-line-2"></span><br><p></p>          
+          <span data-i18n-key="about-line-3"></span>
+          <span data-i18n-key="about-line-4"></span><br><p></p> 
+          <span data-i18n-key="about-line-5"></span><br>
+       </div>
+    </main>
+    <%- include('layouts/footer'); -%>
    </body>
 </html>

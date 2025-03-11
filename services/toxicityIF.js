@@ -5,8 +5,6 @@
    Notes            :
 */
 
-
-
 const tf                                =   require( '@tensorflow/tfjs' );
 const {logger,applicationName}          =   require( '../services/generic' );
 const toxicity                          =   require( '@tensorflow-models/toxicity' );
@@ -14,8 +12,9 @@ const toxicity                          =   require( '@tensorflow-models/toxicit
 
 async function toxicityIF  ( testString , threshold )
 {   try
-    {   logger.trace( applicationName + ':toxicityIF():Started' );
+    {   logger.trace( applicationName + ':toxicityIF():Started' );        
         const analysis                 =   await toxicity.load( threshold );
+        console.log( 'Analysis:',  analysis  );
         const classification           =   await analysis.classify( testString );
         logger.trace( applicationName + ':toxicityIF():Done' );
         return classification;

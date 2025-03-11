@@ -1,9 +1,22 @@
+
 function init()
 {   let classification = document.getElementById( 'classification' ).value;
     console.log( typeof classification); 
     if ( classification.length > 0 )
     {   let classificationObj = JSON.parse( classification );
         console.log( 'classification:', classificationObj );
+        console.log( 'classification length:', classificationObj.length );
+        classificationObj.forEach( function( item ) 
+        {   let classificationItems = document.getElementById( 'classificationItems' );
+            let container = document.createElement( 'span' );
+            let classificationNode = document.createTextNode( 'Classification : ' + item.label + ' : ' + item.results[0].match );
+            classificationItems.appendChild( classificationNode );
+            let br = document.createElement( 'br' );
+            classificationItems.appendChild( br );
+        }
+        );
+
+
         /*
         let classificationItems = document.getElementById( 'classificationItems' );
         let container = document.createElement( 'span' );
@@ -13,6 +26,6 @@ function init()
         let br = document.createElement( 'br' );
         classificationItems.appendChild( br ); */
     }
-
-
 }
+
+init();

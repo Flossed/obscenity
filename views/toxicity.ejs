@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header'); -%>
+   <body style="background-color: #FEFBE4;">   
+   <%- include('layouts/heading'); -%>
+    <main>
+      <textarea style="display:none;" id="classification" ><%= typeof classification !== 'undefined' ? JSON.stringify(classification):'' %></textarea> 
+       <div class="col-md-6 p-lg-5 mx-auto my-5">         
+          <h1 class="display-3 fw-bold" data-i18n-key="toxicity-title"></h1>
+          <h3 class="fw-normal text-muted mb-3" data-i18n-key="toxicity-sub-title"></h3>                   
+          <span data-i18n-key="toxicity-line-1"></span>          
+          <span data-i18n-key="toxicity-line-2"></span><br><p><br>
+            <span data-i18n-key="toxicity-line-5"></span> 
+       </div>
+       <div class="col-md-6 p-lg-5 mx-auto my-5">         
+         <div class="col-auto">
+            <div id="toxicityTable"></div>             
+             <div id='spinner' class="d-flex align-items-center" style="visibility:hidden;">
+              <strong>Thinking...</strong>
+              <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+            </div>
+         </div>
+      </div>
+       <form id="toxicityForm" action="/toxicity" method="post" style="visibility:visible;">
+          <div class="col-md-6 p-lg-5 mx-auto my-5">         
+             <div class="col-auto">
+                <label for="testString" class="form-label" data-i18n-key="toxicity-line-3"></label>
+                <input type="text" id="testString" name="testString"  class="form-control" aria-describedby="toxicityHelp">
+                <div id="toxicityHelp" class="form-text">
+                  <span data-i18n-key="toxicity-line-4"></span>
+                </div>
+             </div>
+             <button type="submit" class="btn btn-primary" onclick="spinnerOn()"><span data-i18n-key="toxicity-submit"></span></button>   
+          </div>          
+      </form>
+    </main>
+    
+    <%- include('layouts/footer'); -%>
+      <script src="/js/toxicity.js"></script>
+   </body>
+</html>

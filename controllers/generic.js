@@ -67,34 +67,33 @@ function findTerm ( originalString, searchString )
 
 
 
-async function toxicitytestPost ( req,res )
+async function toxicityPost ( req,res )
 {   try
-    {   logger.trace( applicationName + ':generic:toxicitytestPost():Started' );
+    {   logger.trace( applicationName + ':generic:toxicityPost():Started' );
 
         const testString               =   req.body.testString;
 
-        logger.debug( applicationName + ':generic:toxicitytestPost():Test String:[' + testString + '].' );
-        console.log( testString );
-        const antwoord                 =   await toxicityIF( testString, 0.5 );
-        console.log('antwoord', JSON.stringify(antwoord, null, 2));
-        res.render( 'toxicitytest', { currentVersions:versionInformation, classification:antwoord } );
-        logger.trace( applicationName + ':generic:toxicitytestPost():Done' );
+        logger.debug( applicationName + ':generic:toxicityPost():Test String:[' + testString + '].' );        
+        const analysis                 =   await toxicityIF( testString, 0.5 );
+        console.log('antwoord', JSON.stringify(analysis, null, 2));
+        res.render( 'toxicity', { currentVersions:versionInformation, classification:analysis } );
+        logger.trace( applicationName + ':generic:toxicityPost():Done' );
     }
     catch ( ex )
-    {   logger.exception( applicationName + ':generic:toxicitytestPost():An exception occurred :[' + ex + '].' );
+    {   logger.exception( applicationName + ':generic:toxicityPost():An exception occurred :[' + ex + '].' );
     }
 }
 
 
 
-function toxicitytestGet ( req,res )
+function toxicityGet ( req,res )
 {   try
-    {  logger.trace( applicationName + ':generic:toxicitytestGet():Started' );
-       res.render( 'toxicitytest', { currentVersions:versionInformation, } );
-       logger.trace( applicationName + ':generic:toxicitytestGet():Done' );
+    {  logger.trace( applicationName + ':generic:toxicityGet():Started' );
+       res.render( 'toxicity', { currentVersions:versionInformation, } );
+       logger.trace( applicationName + ':generic:toxicityGet():Done' );
     }
     catch ( ex )
-    {   logger.exception( applicationName + ':generic:toxicitytestGet():An exception occurred :[' + ex + '].' );
+    {   logger.exception( applicationName + ':generic:toxicityGet():An exception occurred :[' + ex + '].' );
     }
 }
 
@@ -106,9 +105,9 @@ async function toxicitytestHandler ( req,res )
     {   logger.trace( applicationName + ':generic:toxicitytestHandler():Started' );
 
         switch ( req.method )
-        {   case 'POST' :   toxicitytestPost( req,res );
+        {   case 'POST' :   toxicityPost( req,res );
                             break;
-            case 'GET'  :   toxicitytestGet( req,res );
+            case 'GET'  :   toxicityGet( req,res );
                             break;
             default     :   break;
         }
@@ -132,7 +131,7 @@ async function main ( req, res )
                                                              break;
            case '/about'                                 :   aboutHandler( req,res );
                                                              break;
-           case '/toxicitytest'                          :   toxicitytestHandler( req,res  );
+           case '/toxicity'                              :   toxicitytestHandler( req,res  );
                                                              break;
            default                                       :   unknownHandler( req,res );
                                                              break;
