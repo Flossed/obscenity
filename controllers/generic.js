@@ -76,7 +76,7 @@ async function toxicityPost ( req,res )
         logger.debug( applicationName + ':generic:toxicityPost():Test String:[' + testString + '].' );        
         const analysis                 =   await toxicityIF( testString, 0.5 );
         console.log('antwoord', JSON.stringify(analysis, null, 2));
-        res.render( 'toxicity', { currentVersions:versionInformation, classification:analysis } );
+        res.render( 'toxicity', { currentVersions:versionInformation, classification:analysis, sentence: testString} );
         logger.trace( applicationName + ':generic:toxicityPost():Done' );
     }
     catch ( ex )
